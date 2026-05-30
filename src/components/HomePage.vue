@@ -1,7 +1,10 @@
 <template>
   <div class="home-container">
     <!-- 背景粒子效果 -->
-    <canvas ref="particleCanvas" class="particle-bg"></canvas>
+    <canvas
+      ref="particleCanvas"
+      class="particle-bg"
+    />
 
     <!-- 导航栏 -->
     <nav class="navbar">
@@ -10,17 +13,31 @@
         <span class="logo-text">LayerAndTree<span class="logo-accent">D</span></span>
       </div>
       <div class="nav-links">
-        <a href="#features" class="nav-link">功能特性</a>
-        <a href="#map" class="nav-link">地图展示</a>
-        <a href="#3d" class="nav-link">3D场景</a>
-        <a href="#about" class="nav-link">关于项目</a>
+        <a
+          href="#features"
+          class="nav-link"
+        >功能特性</a>
+        <a
+          href="#map"
+          class="nav-link"
+        >地图展示</a>
+        <a
+          href="#3d"
+          class="nav-link"
+        >3D场景</a>
+        <a
+          href="#about"
+          class="nav-link"
+        >关于项目</a>
       </div>
     </nav>
 
     <!-- Hero区域 -->
     <section class="hero">
       <div class="hero-content">
-        <div class="hero-badge">工业数字孪生平台</div>
+        <div class="hero-badge">
+          工业数字孪生平台
+        </div>
         <h1 class="hero-title">
           <span class="title-line">构建未来</span>
           <span class="title-line gradient-text">工业可视化</span>
@@ -31,58 +48,115 @@
           打造沉浸式工业数字孪生体验，助力企业实现智能化升级转型
         </p>
         <div class="hero-actions">
-          <button class="btn-primary" @click="scrollToSection('3d')">
+          <button
+            class="btn-primary"
+            @click="scrollToSection('3d')"
+          >
             <span>探索3D场景</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg
+              class="btn-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </button>
-          <button class="btn-secondary" @click="scrollToSection('map')">
+          <button
+            class="btn-secondary"
+            @click="scrollToSection('map')"
+          >
             <span>查看地图</span>
           </button>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="rotating-cube" ref="heroThreeContainer"></div>
-        <div class="visual-glow"></div>
+        <div
+          ref="heroThreeContainer"
+          class="rotating-cube"
+        />
+        <div class="visual-glow" />
       </div>
     </section>
 
     <!-- 数据统计 -->
     <section class="stats">
-      <div class="stat-item" v-for="(stat, index) in stats" :key="index">
-        <div class="stat-value">{{ stat.value }}<span class="stat-unit">{{ stat.unit }}</span></div>
-        <div class="stat-label">{{ stat.label }}</div>
-        <div class="stat-bar"></div>
+      <div
+        v-for="(stat, index) in stats"
+        :key="index"
+        class="stat-item"
+      >
+        <div class="stat-value">
+          {{ stat.value }}<span class="stat-unit">{{ stat.unit }}</span>
+        </div>
+        <div class="stat-label">
+          {{ stat.label }}
+        </div>
+        <div class="stat-bar" />
       </div>
     </section>
 
     <!-- 功能特性 -->
-    <section id="features" class="features">
+    <section
+      id="features"
+      class="features"
+    >
       <div class="section-header">
         <span class="section-tag">FEATURES</span>
-        <h2 class="section-title">核心功能特性</h2>
-        <p class="section-desc">打通地理空间与三维可视化的技术壁垒</p>
+        <h2 class="section-title">
+          核心功能特性
+        </h2>
+        <p class="section-desc">
+          打通地理空间与三维可视化的技术壁垒
+        </p>
       </div>
       <div class="feature-grid">
-        <div class="feature-card" v-for="(feature, index) in features" :key="index">
-          <div class="feature-icon" v-html="feature.icon"></div>
-          <h3 class="feature-title">{{ feature.title }}</h3>
-          <p class="feature-desc">{{ feature.desc }}</p>
-          <div class="feature-shine"></div>
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="feature-card"
+        >
+          <!-- eslint-disable vue/no-v-html -- 图标为组件内硬编码的静态 SVG，无用户输入，无 XSS 风险 -->
+          <div
+            class="feature-icon"
+            v-html="feature.icon"
+          />
+          <!-- eslint-enable vue/no-v-html -->
+          <h3 class="feature-title">
+            {{ feature.title }}
+          </h3>
+          <p class="feature-desc">
+            {{ feature.desc }}
+          </p>
+          <div class="feature-shine" />
         </div>
       </div>
     </section>
 
     <!-- OpenLayers 地图展示 -->
-    <section id="map" class="map-section">
+    <section
+      id="map"
+      class="map-section"
+    >
       <div class="section-header">
         <span class="section-tag">GIS MAP</span>
-        <h2 class="section-title">工业地理信息系统</h2>
-        <p class="section-desc">基于 OpenLayers 的高性能地图引擎</p>
+        <h2 class="section-title">
+          工业地理信息系统
+        </h2>
+        <p class="section-desc">
+          基于 OpenLayers 的高性能地图引擎
+        </p>
       </div>
       <div class="map-container">
-        <div ref="mapContainer" class="ol-map"></div>
+        <div
+          ref="mapContainer"
+          class="ol-map"
+        />
         <div class="map-overlay">
           <div class="map-info">
             <div class="info-item">
@@ -100,28 +174,74 @@
           </div>
         </div>
         <div class="map-controls">
-          <button class="map-btn" @click="zoomIn" title="放大">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <button
+            class="map-btn"
+            title="放大"
+            @click="zoomIn"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            ><path
+              d="M12 5v14M5 12h14"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            /></svg>
           </button>
-          <button class="map-btn" @click="zoomOut" title="缩小">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <button
+            class="map-btn"
+            title="缩小"
+            @click="zoomOut"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            ><path
+              d="M5 12h14"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            /></svg>
           </button>
-          <button class="map-btn" @click="resetView" title="重置视图">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1018 0 9 9 0 10-18 0M3 12h4M12 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <button
+            class="map-btn"
+            title="重置视图"
+            @click="resetView"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            ><path
+              d="M3 12a9 9 0 1018 0 9 9 0 10-18 0M3 12h4M12 3v4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            /></svg>
           </button>
         </div>
       </div>
     </section>
 
     <!-- Three.js 3D场景 -->
-    <section id="3d" class="three-section">
+    <section
+      id="3d"
+      class="three-section"
+    >
       <div class="section-header">
         <span class="section-tag">3D VISUALIZATION</span>
-        <h2 class="section-title">工业三维场景</h2>
-        <p class="section-desc">基于 Three.js 的沉浸式工业模型渲染</p>
+        <h2 class="section-title">
+          工业三维场景
+        </h2>
+        <p class="section-desc">
+          基于 Three.js 的沉浸式工业模型渲染
+        </p>
       </div>
       <div class="three-container">
-        <div ref="threeContainer" class="three-canvas"></div>
+        <div
+          ref="threeContainer"
+          class="three-canvas"
+        />
         <div class="three-controls">
           <div class="control-group">
             <span class="control-label">场景选择</span>
@@ -172,11 +292,16 @@
     </section>
 
     <!-- 项目意义 -->
-    <section id="about" class="about-section">
+    <section
+      id="about"
+      class="about-section"
+    >
       <div class="about-grid">
         <div class="about-content">
           <span class="section-tag">PROJECT SIGNIFICANCE</span>
-          <h2 class="about-title">项目的意义与价值</h2>
+          <h2 class="about-title">
+            项目的意义与价值
+          </h2>
           <div class="about-text">
             <p>
               在工业4.0与数字化转型的浪潮中，<strong>可视化技术</strong>正成为连接物理世界与数字世界的关键桥梁。
@@ -193,8 +318,14 @@
             </p>
           </div>
           <div class="about-values">
-            <div class="value-item" v-for="(value, index) in values" :key="index">
-              <div class="value-number">{{ String(index + 1).padStart(2, '0') }}</div>
+            <div
+              v-for="(value, index) in values"
+              :key="index"
+              class="value-item"
+            >
+              <div class="value-number">
+                {{ String(index + 1).padStart(2, '0') }}
+              </div>
               <div class="value-content">
                 <h4>{{ value.title }}</h4>
                 <p>{{ value.desc }}</p>
@@ -204,11 +335,20 @@
         </div>
         <div class="about-visual">
           <div class="visual-card">
-            <div class="card-glow"></div>
+            <div class="card-glow" />
             <div class="card-content">
               <div class="tech-stack">
-                <div class="tech-item" v-for="tech in techStack" :key="tech.name">
-                  <div class="tech-icon" v-html="tech.icon"></div>
+                <div
+                  v-for="tech in techStack"
+                  :key="tech.name"
+                  class="tech-item"
+                >
+                  <!-- eslint-disable vue/no-v-html -- 图标为组件内硬编码的静态 SVG，无用户输入，无 XSS 风险 -->
+                  <div
+                    class="tech-icon"
+                    v-html="tech.icon"
+                  />
+                  <!-- eslint-enable vue/no-v-html -->
                   <span class="tech-name">{{ tech.name }}</span>
                 </div>
               </div>
@@ -689,7 +829,7 @@ function createFactoryScene(scene: THREE.Scene): void {
   const conveyor = new THREE.Mesh(conveyorGeometry, materials.metal);
   conveyor.position.set(-8, 1.5, 0);
   conveyor.rotation.z = 0.1;
-  scene.add(conveyorGeometry);
+  scene.add(conveyor);
 
   // 控制室
   const controlRoomGeometry = new THREE.BoxGeometry(4, 3, 4);
@@ -763,7 +903,7 @@ function createPipelineScene(scene: THREE.Scene): void {
   });
 
   // 阀门
-  const valvePositions = [
+  const valvePositions: [number, number, number][] = [
     [0, 2, 0], [-10, 2, 0], [10, 2, 0],
     [0, 2, 5], [0, 2, -5],
     [-10, 2, 5], [10, 2, -5],
@@ -870,7 +1010,7 @@ function updateStats(scene: THREE.Scene): void {
 
   scene.traverse((object) => {
     if (object instanceof THREE.Mesh) {
-      const geometry = object.geometry;
+      const {geometry} = object;
       if (geometry.index !== null) {
         triangles += geometry.index.count / 3;
       } else if (geometry.attributes.position) {
