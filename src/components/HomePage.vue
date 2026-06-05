@@ -29,6 +29,12 @@
           href="#about"
           class="nav-link"
         >关于项目</a>
+        <RouterLink
+          to="/docs"
+          class="nav-link nav-link-docs"
+        >
+          文档中心
+        </RouterLink>
       </div>
     </nav>
 
@@ -1247,6 +1253,21 @@ onUnmounted(() => {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-link-docs {
+  color: var(--color-accent);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 8px;
+}
+
+.nav-link-docs:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.nav-link-docs::after {
+  display: none;
 }
 
 /* Hero 区域 */

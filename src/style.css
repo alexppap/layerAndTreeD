@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* 主色 */
+  --color-primary: #00d4ff;
+  --color-secondary: #7c3aed;
+  --color-accent: #00d4ff;
+  --color-accent-secondary: #7c3aed;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* 背景 */
+  --color-bg: #0a0f19;
+  --color-bg-primary: #0a0f19;
+  --color-bg-secondary: #111827;
+  --color-bg-tertiary: #1f2937;
+
+  /* 文本 */
+  --color-text: #e5e7eb;
+  --color-text-primary: #e5e7eb;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #9ca3af;
+  --color-text-tertiary: #6b7280;
+
+  /* 边框 */
+  --color-border: #1f2937;
+  --color-border-light: #374151;
+
+  /* 字体 */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+}
+
 * {
   margin: 0;
   padding: 0;
